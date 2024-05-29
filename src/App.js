@@ -6,11 +6,11 @@ import { useState } from "react";
 
 
 
-const initialList = [
-  { counter:1, id: 1243242343223, name: "Jacket" },
-  { counter:5,id: 2524525245243, name: "Shirt" },
-  { counter:5, id: 3443222443256, name: "Socks" },
-];
+// const initialList = [
+//   { counter:1, id: 1243242343223, name: "Jacket", packed: false },
+//   { counter:5,id: 2524525245243, name: "Shirt", packed: false },
+//   { counter:5, id: 3443222443256, name: "Socks", packed: false },
+// ];
 
 
 
@@ -18,7 +18,7 @@ const initialList = [
 function App() {
  
 
-  const [items, setItems] = useState(initialList);
+  const [items, setItems] = useState([]);
 
   const handleAddItem = (newItem) => {
     setItems((prevItems) => [...prevItems, newItem]);
@@ -30,12 +30,22 @@ function App() {
     console.log("ne se trie");
   }
 
+  
+  function handleToggleItem(id) {
+    setItems((items) =>
+      items.map((item) =>
+        item.id === id ? { ...item, packed: !item.packed } : item
+      )
+    );
+  }
+
+
   return (
     <>
       <Header />
       <AddComponent startList={items} onAddItem={handleAddItem} />
-      <LIstComponent startList={items} onDeleteItem={ handleDeleteItem } />
-      <Footer />
+      <LIstComponent startList={items} onDeleteItem={handleDeleteItem} onToggleItem={ handleToggleItem} />
+      <Footer items={ items } />
     </>
   );
 }
