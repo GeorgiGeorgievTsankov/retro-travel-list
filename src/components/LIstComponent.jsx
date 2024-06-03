@@ -66,7 +66,7 @@ export default function LIstComponent({
           <option value="description">Sort by description</option>
           <option value="packed">Sort by packed status</option>
         </select>
-        <button onClick={(e) => setItems([])} className="ft">
+     <button onClick={() => setItems([])} className="ft">
           Clear list
         </button>
       </div>
