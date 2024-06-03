@@ -5,9 +5,8 @@ export default function LIstComponent({
   startList,
   onDeleteItem,
   onToggleItem,
-  setItems,
+  onClearList,
 }) {
- 
   //   console.log(startList);
 
   const [sortBy, setSortBy] = useState("input");
@@ -24,11 +23,9 @@ export default function LIstComponent({
     sortedItems = startList
       .slice()
       .sort((a, b) => Number(a.packed) - Number(b.packed));
-    }
+  }
 
-    
-    // console.log(sortedItems);
-    
+  // console.log(sortedItems);
 
   return (
     <>
@@ -66,14 +63,10 @@ export default function LIstComponent({
           <option value="description">Sort by description</option>
           <option value="packed">Sort by packed status</option>
         </select>
-     <button onClick={() => setItems([])} className="ft">
+        <button onClick={onClearList} className="ft">
           Clear list
         </button>
       </div>
     </>
-    );
-    
-    
+  );
 }
-
-
