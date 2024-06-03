@@ -28,7 +28,7 @@ export default function AddComponent({ onAddItem }) {
 
   const handleAdd = () => {
     if (newItem.trim() !== "") {
-      const newData = { id: Date.now(), name: newItem, counter: optCount };
+      const newData = { id: Date.now(), name: newItem, counter: optCount, packed:false };
       onAddItem(newData);
       setNewItem("");
       setOptCount(1);

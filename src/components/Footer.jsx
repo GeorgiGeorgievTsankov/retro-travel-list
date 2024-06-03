@@ -12,7 +12,7 @@ export default function Footer({ items }) {
   });
 
   const percentPackedItems =
-        totalItems > 0 ? ((packedItems / totalItems) * 100).toFixed(0) : 0;
+        totalItems > 0 ? Math.round((packedItems / totalItems) * 100) : 0;
     
         if (totalItems <= 0)
             return (
