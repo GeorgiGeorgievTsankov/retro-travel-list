@@ -39,12 +39,19 @@ function App() {
     );
   }
 
+  function handleClearList() {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete all items?"
+    );
+    
+    if (confirmed) setItems([]);
+  }
 
   return (
     <>
       <Header />
       <AddComponent startList={items} onAddItem={handleAddItem} />
-      <LIstComponent startList={items} onDeleteItem={handleDeleteItem} onToggleItem={ handleToggleItem} />
+      <LIstComponent onClearList={handleClearList} setItems={setItems} startList={items} onDeleteItem={handleDeleteItem} onToggleItem={ handleToggleItem} />
       <Footer items={ items } />
     </>
   );
