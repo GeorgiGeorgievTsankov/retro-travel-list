@@ -4,7 +4,7 @@ export default function Footer({ items }) {
   let totalItems = 0;
   let packedItems = 0;
 
-  items.map((item) => {
+  items.forEach((item) => {
     totalItems += Number(item.counter);
     if (item.packed) {
       packedItems += Number(item.counter);
@@ -22,7 +22,7 @@ export default function Footer({ items }) {
             );
 
     return (
-        percentPackedItems == 100 ? (
+        percentPackedItems === 100 ? (
           <div className="stats">
             <h5>You got everything! Ready to go ✈️</h5>
           </div>
